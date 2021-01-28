@@ -1,14 +1,13 @@
 require "pry"
 class Helpers 
 
-  def current_user(hash)
-    binding.pry
+  def self.current_user(session)
     @user = User.find(session[:user_id])
-    # erb :'/users/home'
+    @user
   end
 
-  def is_logged_in?
-
+  def self.is_logged_in?(session)
+   !!session[:user_id]
   end
 
 end
